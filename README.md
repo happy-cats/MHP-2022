@@ -6,7 +6,7 @@
   
 ## How to run sumo gui
 * build the docker image
-  * `docker build - < Dockerfile -t docker-sumxo`
+  * `docker build . -t docker-sumo`
 * connect to bash
 ```
 docker run --rm \
