@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mhp-2022"
+version = "0.1.0"
+description = "MHP Mobility Hack 2022"
+authors = ["Hash Cats"]
+license = "Apache 2.0"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+attrs = "^21.4.0"
+sumu = "^0.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
