@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/iid-project-design-a" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tmp/sumo-rl" vcs="Git" />
   </component>
 </project>
