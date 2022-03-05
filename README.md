@@ -25,3 +25,11 @@ docker run --rm \
   bash
 ```
 * run `sumo` or `sumo-gui`
+
+## Used libraries
+* sumo
+* traci
+* sumo-rl
+
+## Related scientiffic work
+* https://people.engr.tamu.edu/guni/Papers/NeurIPS-signals.pdf
