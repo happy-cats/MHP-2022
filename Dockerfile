@@ -15,6 +15,7 @@ RUN pip install -e sumo-rl
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install tensorflow stable-baselines3
 
 ENV SUMO_HOME="/usr/share/sumo"
 
