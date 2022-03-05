@@ -16,7 +16,7 @@ RUN pip install -e sumo-rl
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
+ENV SUMO_HOME="/usr/share/sumo"
+
 WORKDIR /opt/app
 COPY data data
-
-RUN export SUMO_HOME="/usr/share/sumo"

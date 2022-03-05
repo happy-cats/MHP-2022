@@ -18,11 +18,11 @@ from sumo_rl.exploration import EpsilonGreedy
 
 @attr.s
 class QLearningParams:
-    route_file = attr.ib(default='data/vienna-small/single-intersection-vhvh.rou.xml')
-    net_file = attr.ib(default='data/vienna-small/single-intersection.net.xml')
-    out_file = attr.ib(default='outputs/vienna-small/')
+    route_file = attr.ib(default='data/osm-train-simple/osm.rou.xml')
+    net_file = attr.ib(default='data/osm-train-simple/map.net.xml')
+    out_file = attr.ib(default='outputs/osm-train-simple/')
     simulation_tile = attr.ib(default=100000)
-    min_green_time = attr.ib(default=3)
+    min_green_time = attr.ib(default=10)
     max_green_time = attr.ib(default=45)
     alpha_learning_rate = attr.ib(default=0.1)
     gamma_discount_rate = attr.ib(default=0.99)
@@ -59,7 +59,6 @@ class QLearningParams:
 
 
 if __name__ == '__main__':
-
     params = QLearningParams()
     args = params.get_q_learning_args()
     experiment_time = str(datetime.now()).split('.')[0]
