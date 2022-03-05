@@ -3,6 +3,8 @@ import { createStore, Store } from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface State {
+  showSplashScreen: Boolean,
+  currentUser: String,
   showAddScenarioDialog: Boolean,
   showAddItemDialog: Boolean,
   showAssignScenarioItemDialog: Boolean,
@@ -32,6 +34,8 @@ export const store = createStore<State>({
     showAddScenarioDialog: false,
     showAddItemDialog: false,
     showAssignScenarioItemDialog: false,
+    showSplashScreen: true,
+    currentUser: '',
     scenarios: [
       {
         id: uuidv4(), title: 'Work',

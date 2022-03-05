@@ -1,31 +1,29 @@
 <template>
   <v-container class="view-selection-container">
-    <div class="view-selection">
-      <div v-on:click="setView('Scenario')"
-           class="menu-entry"
-           :class="{'selected-menu-entry':store.state.currentView === 'Scenario' }">
-        Scenarios
-      </div>
-      <div class="view-selection-separator">|</div>
-      <div v-on:click="setView('Items')"
-           class="menu-entry"
-           :class="{'selected-menu-entry':store.state.currentView === 'Items' }">Items</div>
-    </div>
+    <header-component></header-component>
+    <dashboard-component class="dashboard"></dashboard-component>
+    <footer-component class="footer"></footer-component>
   </v-container>
-  <scenarios-component v-if="store.state.currentView === 'Scenario'"></scenarios-component>
-  <items-component v-if="store.state.currentView === 'Items'"></items-component>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import { useStore } from 'vuex';
-import { key } from '@/store/datastore';
+import {Options, Vue} from 'vue-class-component';
+import {useStore} from 'vuex';
+import {key} from '@/store/datastore';
+import HeaderComponent from "@/components/structure/HeaderComponent.vue";
+import FooterComponent from "@/components/structure/FooterComponent.vue";
+import DashboardComponent from "@/components/DashboardComponent.vue";
 
 @Options({
   name: 'main-component',
+  components: {FooterComponent, HeaderComponent, DashboardComponent},
 })
 export default class MainComponent extends Vue {
   private store = useStore(key);
+
+  private getCurrentUser() {
+    return this.store.state.currentUser;
+  }
 
   private setView(view: string) {
     this.store.state.currentView = view;
@@ -35,34 +33,20 @@ export default class MainComponent extends Vue {
 
 <style lang="scss" scoped>
 .view-selection-container {
-  padding: 1.5em;
+  padding: 0 !important;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   font-family: "Saira", Helvetica, Arial, serif;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.view-selection {
-  display: flex;
-  color: var(--main-text-colour);
-  width: 100%;
-  justify-content: space-around;
-  background-color: var(--main-selection-colour);
-  padding: 5px;
-  border-radius: 15px;
+.dashboard {
+  height: 70vh;
 }
 
-.selected-menu-entry {
-  background-color: var(--main-color);
-  border-radius: 10px;
-}
-
-.menu-entry {
-  padding: 0 10px;
-}
-
-.view-selection-separator {
-  margin: 0 -15%;
+.footer {
+  height: 10vh;
 }
 </style>

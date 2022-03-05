@@ -8,11 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     name: 'site',
     component: HomeComponent
   },
-  {
-    path: '/listener',
-    name: 'listener',
-    component: ListenerComponent
-  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),
