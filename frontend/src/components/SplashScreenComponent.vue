@@ -1,6 +1,6 @@
 <template>
-  <v-container class="main">
-    <v-img src="@/assets/svg/Breeze.svg" alt="image" class="splash-screen" @click="hideSplash()"/>
+  <v-container class="main" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/svg/Breeze.svg') + ')' }">
+    <div></div>
   </v-container>
 </template>
 
@@ -28,7 +28,8 @@ export default class SplashScreenComponent extends Vue {
 }
 
 .main {
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   text-align: center;
   font-family: "Post no bills", Helvetica, Arial, serif;
   font-size: 3rem;
