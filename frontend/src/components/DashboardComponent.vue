@@ -93,6 +93,7 @@ export default class DashboardComponent extends Vue {
   display: flex;
   flex-direction: column;
   background-color: var(--secondary-color);
+  padding-bottom: 25px;
 }
 
 .text-field {
