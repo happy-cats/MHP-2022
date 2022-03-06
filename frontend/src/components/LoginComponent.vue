@@ -1,5 +1,10 @@
 <template>
-  <v-container class="login-component" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')' }">
+  <v-container
+    class="login-component"
+    v-bind:style="{
+      backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')'
+    }"
+  >
     <form class="main">
       <div class="header">Log in</div>
       <div class="input">
@@ -9,11 +14,11 @@
             mdi-account
           </v-icon>
           <input
-              type="text"
-              id="username"
-              class="text input-field"
-              v-model="username"
-              required
+            type="text"
+            id="username"
+            class="text input-field"
+            v-model="username"
+            required
           />
         </div>
       </div>
@@ -24,37 +29,38 @@
             mdi-lock
           </v-icon>
           <input
-              type="password"
-              id="password"
-              class="text input-field"
-              v-model="password"
-              required
+            type="password"
+            id="password"
+            class="text input-field"
+            v-model="password"
+            required
           />
         </div>
       </div>
-      <button type="submit" class="login-button" @click="login()">Log in</button>
+      <button type="submit" class="login-button" @click="login()">
+        Log in
+      </button>
     </form>
   </v-container>
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
-import {useStore} from "vuex";
-import {key} from "@/store/datastore";
+import { Options, Vue } from 'vue-class-component'
+import { useStore } from 'vuex'
+import { key } from '@/store/datastore'
 
 @Options({
-  name: "login-component"
+  name: 'login-component'
 })
 export default class LoginComponent extends Vue {
-  private store = useStore(key);
-  private username = '';
-  private password = '';
+  private store = useStore(key)
+  private username = ''
+  private password = ''
 
   private login() {
     if (this.password !== '' && this.username !== '')
-      this.store.state.currentUser = this.username;
+      this.store.state.currentUser = this.username
   }
-
 }
 </script>
 
@@ -121,5 +127,4 @@ export default class LoginComponent extends Vue {
   color: var(--secondary-color);
   margin-top: 25px;
 }
-
 </style>

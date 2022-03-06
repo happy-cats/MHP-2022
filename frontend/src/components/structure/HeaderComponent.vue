@@ -1,30 +1,35 @@
 <template>
-  <v-container class="dashboard-component" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')' }">
+  <v-container
+    class="dashboard-component"
+    v-bind:style="{
+      backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')'
+    }"
+  >
     <div class="spaced">
-      <v-img src="@/assets/images/avatar.jpg" alt="image" class="user-icon"/>
-      <h2 class="text greeting-text"> Hello {{ getCurrentUser() }}</h2>
+      <v-img src="@/assets/images/avatar.jpg" alt="image" class="user-icon" />
+      <h2 class="text greeting-text">Hello {{ getCurrentUser() }}</h2>
       <p class="text main-text">Let's avoid some CO2 emissions today</p>
     </div>
   </v-container>
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
-import {useStore} from 'vuex';
-import {key} from '@/store/datastore';
+import { Options, Vue } from 'vue-class-component'
+import { useStore } from 'vuex'
+import { key } from '@/store/datastore'
 
 @Options({
-  name: 'header-component',
+  name: 'header-component'
 })
 export default class HeaderComponent extends Vue {
-  private store = useStore(key);
+  private store = useStore(key)
 
   private getCurrentUser() {
-    return this.store.state.currentUser;
+    return this.store.state.currentUser
   }
 
   private setView(view: string) {
-    this.store.state.currentView = view;
+    this.store.state.currentView = view
   }
 }
 </script>
@@ -34,13 +39,13 @@ export default class HeaderComponent extends Vue {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  border: 2px solid var(--secondary-color)
+  border: 2px solid var(--secondary-color);
 }
 
 .greeting-text {
   margin-top: 15px;
   font-size: 1.6rem;
-  font-weight: 100;
+  font-weight: 700;
 }
 
 .main-text {
@@ -50,7 +55,7 @@ export default class HeaderComponent extends Vue {
 }
 
 .spaced {
-  padding: 1.5rem;
+  padding: 1.5rem 0 124px 0;
 }
 
 .header-component {

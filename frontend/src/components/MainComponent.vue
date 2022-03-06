@@ -7,26 +7,26 @@
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
-import {useStore} from 'vuex';
-import {key} from '@/store/datastore';
-import HeaderComponent from "@/components/structure/HeaderComponent.vue";
-import FooterComponent from "@/components/structure/FooterComponent.vue";
-import DashboardComponent from "@/components/DashboardComponent.vue";
+import { Options, Vue } from 'vue-class-component'
+import { useStore } from 'vuex'
+import { key } from '@/store/datastore'
+import HeaderComponent from '@/components/structure/HeaderComponent.vue'
+import FooterComponent from '@/components/structure/FooterComponent.vue'
+import DashboardComponent from '@/components/DashboardComponent.vue'
 
 @Options({
   name: 'main-component',
-  components: {FooterComponent, HeaderComponent, DashboardComponent},
+  components: { FooterComponent, HeaderComponent, DashboardComponent }
 })
 export default class MainComponent extends Vue {
-  private store = useStore(key);
+  private store = useStore(key)
 
   private getCurrentUser() {
-    return this.store.state.currentUser;
+    return this.store.state.currentUser
   }
 
   private setView(view: string) {
-    this.store.state.currentView = view;
+    this.store.state.currentView = view
   }
 }
 </script>
@@ -37,7 +37,6 @@ export default class MainComponent extends Vue {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  font-family: "Saira", Helvetica, Arial, serif;
   font-size: 1.2rem;
   font-weight: bold;
 }

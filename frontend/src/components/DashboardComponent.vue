@@ -1,12 +1,32 @@
 <template>
   <v-container class="dashboard-container">
+    <div class="data-wrapper">
+      <div class="numbers">
+        <v-img
+          src="@/assets/svg/data.svg"
+          alt="image"
+          class="data-image"
+          @click="hideSplash()"
+        />
+      </div>
+      <div>
+        <div class="text">
+          Almost there!
+        </div>
+
+        <div class="text">
+          Keep breezing to get a 5€ discount!
+        </div>
+      </div>
+    </div>
+
     <div class="subsection">
       <div class="subheader">
         New journey
       </div>
       <v-toolbar dense class="search-bar">
         <v-icon class="search-icon">mdi-magnify</v-icon>
-        <input type="text" class="search-text" placeholder="Search">
+        <input type="text" class="search-text" placeholder="Search" />
       </v-toolbar>
       <div class="journey-buttons">
         <v-btn class="text button">Home</v-btn>
@@ -26,10 +46,9 @@
           <div class="text text-secondary">15/50 members</div>
         </div>
         <div class="card-line card-separator">
-          <input type="range" class="range" min="0" max="50" value="15" disabled>
+          <div class="challenge-bg"><div class="challenge-line"></div></div>
         </div>
       </div>
-
     </div>
 
     <div class="subsection">
@@ -41,11 +60,15 @@
         <div>
           <div class="card-line">
             <div class="card-inline">
-            <v-icon class="card-inline-icon">mdi-car</v-icon>
-            <div class="text text--left text--bigger card-inline--text">8 points</div>
+              <v-icon class="card-inline-icon">mdi-car</v-icon>
+              <div class="text text--left text--bigger card-inline--text">
+                8 points
+              </div>
             </div>
             <div></div>
-            <div class="text text-secondary card-inline--subheader">06.03.2022</div>
+            <div class="text text-secondary card-inline--subheader">
+              06.03.2022
+            </div>
           </div>
         </div>
       </div>
@@ -55,10 +78,14 @@
           <div class="card-line">
             <div class="card-inline">
               <v-icon class="card-inline-icon purple">mdi-shoe-print</v-icon>
-              <div class="text text--left text--bigger card-inline--text">8 points</div>
+              <div class="text text--left text--bigger card-inline--text">
+                8 points
+              </div>
             </div>
             <div></div>
-            <div class="text text-secondary card-inline--subheader">04.03.2022</div>
+            <div class="text text-secondary card-inline--subheader">
+              04.03.2022
+            </div>
           </div>
         </div>
       </div>
@@ -67,23 +94,23 @@
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
-import {useStore} from 'vuex';
-import {key} from '@/store/datastore';
+import { Options, Vue } from 'vue-class-component'
+import { useStore } from 'vuex'
+import { key } from '@/store/datastore'
 
 @Options({
   name: 'dashboard-component',
-  components: {},
+  components: {}
 })
 export default class DashboardComponent extends Vue {
-  private store = useStore(key);
+  private store = useStore(key)
 
   private getCurrentUser() {
-    return this.store.state.currentUser;
+    return this.store.state.currentUser
   }
 
   private setView(view: string) {
-    this.store.state.currentView = view;
+    this.store.state.currentView = view
   }
 }
 </script>
@@ -103,7 +130,7 @@ export default class DashboardComponent extends Vue {
 
 .search-bar {
   padding: 5px;
-  border: 2px solid #DEE5EF;
+  border: 2px solid #dee5ef;
   border-radius: 10px;
   width: 100%;
   margin-bottom: 10px;
@@ -139,7 +166,8 @@ export default class DashboardComponent extends Vue {
 .card {
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16);
+  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04),
+    0px 4px 8px rgba(96, 97, 112, 0.16);
   border-radius: 8px;
   padding: 5px 0;
 }
@@ -148,7 +176,7 @@ export default class DashboardComponent extends Vue {
   display: flex;
   flex-direction: row;
   padding: 8px;
-  justify-content: space-around
+  justify-content: space-between;
 }
 
 .card-inline {
@@ -177,7 +205,7 @@ export default class DashboardComponent extends Vue {
 }
 
 .text-secondary {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: var(--subheader-color);
   margin-top: 4px;
 }
@@ -196,7 +224,7 @@ export default class DashboardComponent extends Vue {
 }
 
 .card-inline-icon {
-  background-color: #F5C844;
+  background-color: #f5c844;
   color: var(--secondary-color);
   height: 2rem;
   width: 2rem;
@@ -204,7 +232,7 @@ export default class DashboardComponent extends Vue {
 }
 
 .purple {
-  background-color: #EC5495;
+  background-color: #ec5495;
 }
 
 .buttons {
@@ -217,5 +245,40 @@ export default class DashboardComponent extends Vue {
   color: var(--secondary-color);
   background-color: var(--main-button-colour);
   border-radius: 10px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-size: 16px;
+  width: 48%;
+}
+
+.data-wrapper {
+  margin-top: -100px;
+  background-color: white;
+  display: flex;
+  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04),
+    0px 4px 8px rgba(96, 97, 112, 0.16);
+  border-radius: 8px;
+  padding: 16px;
+  align-items: center;
+}
+
+.data-image {
+  width: 200px;
+  margin-right: 24px;
+}
+
+.challenge-bg {
+  height: 12px;
+  width: 100%;
+  background-color: #dbe6f0;
+  border-radius: 20px;
+}
+
+.challenge-line {
+  height: 100%;
+  width: 25%;
+  background-color: #62d4a1;
+  border-radius: 20px;
 }
 </style>
