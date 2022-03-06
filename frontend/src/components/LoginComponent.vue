@@ -4,25 +4,33 @@
       <div class="header">Log in</div>
       <div class="input">
         <label for="username" class="text input-label">Username</label>
-        <input
-            type="text"
-            id="username"
-            class="text input-field"
-            v-model="username"
-            placeholder="Username"
-            required
-        />
+        <div class="combined_input">
+          <v-icon class="combined_input--icon">
+            mdi-account
+          </v-icon>
+          <input
+              type="text"
+              id="username"
+              class="text input-field"
+              v-model="username"
+              required
+          />
+        </div>
       </div>
       <div class="input">
         <label for="password" class="text input-label">Password</label>
-        <input
-            type="password"
-            id="password"
-            class="text input-field"
-            v-model="password"
-            placeholder="Password"
-            required
-        />
+        <div class="combined_input">
+          <v-icon class="combined_input--icon">
+            mdi-lock
+          </v-icon>
+          <input
+              type="password"
+              id="password"
+              class="text input-field"
+              v-model="password"
+              required
+          />
+        </div>
       </div>
       <button type="submit" class="login-button" @click="login()">Log in</button>
     </form>
@@ -68,11 +76,23 @@ export default class LoginComponent extends Vue {
 .input {
   display: flex;
   flex-direction: column;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+.combined_input {
+  color: var(--main-text-colour);
+  background-color: var(--secondary-color);
+  padding: 7px;
+  border-radius: 7px;
+}
+
+.combined_input--icon {
+  padding-right: 5px;
+  color: var(--main-button-colour);
 }
 
 .input-label {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .input-field {
@@ -90,6 +110,10 @@ export default class LoginComponent extends Vue {
 
 .login-button {
   background-color: var(--main-button-colour);
+  padding: 7px;
+  border-radius: 7px;
+  color: var(--secondary-color);
+  margin-top: 25px;
 }
 
 </style>
