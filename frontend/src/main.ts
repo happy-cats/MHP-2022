@@ -11,6 +11,7 @@ import router from './router';
 import HeaderComponent from "@/components/structure/HeaderComponent.vue";
 import FooterComponent from "@/components/structure/FooterComponent.vue";
 import DashboardComponent from "@/components/DashboardComponent.vue";
+import HomeScreenComponent from "@/components/screens/HomeScreen.vue";
 
 createApp(App)
     .component('splash-screen-component', SplashScreenComponent)
@@ -20,6 +21,7 @@ createApp(App)
     .component('login-component', LoginComponent)
     .component('main-component', MainComponent)
     .component('home-component', HomeComponent)
+    .component('home-screen-component', HomeScreenComponent)
     .use(router)
     .use(vuetify)
     .use(store, key)

@@ -1,7 +1,8 @@
 <template>
   <v-container class="view-selection-container">
     <header-component></header-component>
-    <dashboard-component class="dashboard"></dashboard-component>
+    <dashboard-component class="dashboard" v-if="getView() === 'Home'"></dashboard-component>
+    <home-screen-component class="dashboard" v-if="getView() === 'HomeScreen'"></home-screen-component>
     <footer-component class="footer"></footer-component>
   </v-container>
 </template>
@@ -13,10 +14,11 @@ import { key } from '@/store/datastore'
 import HeaderComponent from '@/components/structure/HeaderComponent.vue'
 import FooterComponent from '@/components/structure/FooterComponent.vue'
 import DashboardComponent from '@/components/DashboardComponent.vue'
+import HomeScreenComponent from "@/components/screens/HomeScreen.vue";
 
 @Options({
   name: 'main-component',
-  components: { FooterComponent, HeaderComponent, DashboardComponent }
+  components: {HomeScreenComponent, FooterComponent, HeaderComponent, DashboardComponent }
 })
 export default class MainComponent extends Vue {
   private store = useStore(key)
@@ -25,8 +27,8 @@ export default class MainComponent extends Vue {
     return this.store.state.currentUser
   }
 
-  private setView(view: string) {
-    this.store.state.currentView = view
+  private getView() {
+    return this.store.state.currentView;
   }
 }
 </script>

@@ -29,8 +29,8 @@
         <input type="text" class="search-text" placeholder="Search" />
       </v-toolbar>
       <div class="journey-buttons">
-        <v-btn class="text button">Home</v-btn>
-        <v-btn class="text button">Work</v-btn>
+        <v-btn class="text button" @click="setView('HomeScreen')">Home</v-btn>
+        <v-btn class="text button" @click="setView('HomeScreen')">Work</v-btn>
       </div>
     </div>
 
