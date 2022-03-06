@@ -43,7 +43,7 @@ export default class MainComponent extends Vue {
 }
 
 .dashboard {
-  height: 70vh;
+  min-height: 60vh;
 }
 
 .footer {

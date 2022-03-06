@@ -80,6 +80,7 @@ export default class HomeComponent extends Vue {
 :root {
   --main-color: #62D4A1;
   --secondary-color: #FFF;
+  --subheader-color: #707D93;
   --icon-color: #D4D3EA;
   --main-text-colour: #000000;
   --secondary-text-colour: #FFF;

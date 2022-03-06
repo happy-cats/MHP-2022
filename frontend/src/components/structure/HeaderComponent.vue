@@ -1,9 +1,9 @@
 <template>
-  <v-container class="dashboard-component">
+  <v-container class="dashboard-component" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')' }">
     <div class="spaced">
-      <v-img src="@/assets/images/keys.png" alt="image" class="user-icon"/>
-      <h2 class="text"> Hello {{ getCurrentUser() }}</h2>
-      <p class="text">Let's avoid some CO2 emissions today</p>
+      <v-img src="@/assets/images/avatar.jpg" alt="image" class="user-icon"/>
+      <h2 class="text greeting-text"> Hello {{ getCurrentUser() }}</h2>
+      <p class="text main-text">Let's avoid some CO2 emissions today</p>
     </div>
   </v-container>
 </template>
@@ -33,6 +33,20 @@ export default class HeaderComponent extends Vue {
 .user-icon {
   width: 50px;
   height: 50px;
+  border-radius: 25px;
+  border: 2px solid var(--secondary-color)
+}
+
+.greeting-text {
+  margin-top: 15px;
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+.main-text {
+  font-size: 0.9rem;
+  font-weight: lighter;
+  margin-top: 5px;
 }
 
 .spaced {
@@ -48,5 +62,11 @@ export default class HeaderComponent extends Vue {
 
 .text {
   color: var(--secondary-text-colour);
+}
+</style>
+
+<style lang="scss">
+.user-icon .v-img__img--contain {
+  object-fit: cover;
 }
 </style>

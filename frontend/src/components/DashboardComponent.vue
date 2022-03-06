@@ -1,52 +1,68 @@
 <template>
   <v-container class="dashboard-container">
-    <v-card class="journey">
-      <v-card-title class="text-h5 text">
+    <div class="subsection">
+      <div class="subheader">
         New journey
-      </v-card-title>
+      </div>
+      <v-toolbar dense class="search-bar">
+        <v-icon class="search-icon">mdi-magnify</v-icon>
+        <input type="text" class="search-text" placeholder="Search">
+      </v-toolbar>
+      <div class="journey-buttons">
+        <v-btn class="text button">Home</v-btn>
+        <v-btn class="text button">Work</v-btn>
+      </div>
+    </div>
 
-      <v-card-text class="card-body">
-        <v-toolbar dense class="search-bar">
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-          <input type="text" class="text-field">
-        </v-toolbar>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn class="text button" @click="testBeep()">Home</v-btn>
-        <v-spacer></v-spacer>
-        <v-btn class="text button" @click="addItem()">Work</v-btn>
-      </v-card-actions>
-    </v-card>
-    <v-card class="challenges">
-      <v-card-title class="text-h5 text">
+    <div class="subsection">
+      <div class="subheader">
         Challenges
-      </v-card-title>
+      </div>
 
-      <v-card-text class="card-body">
-        <div>
-          10 days without a car
+      <div class="card">
+        <div class="card-line">
+          <div class="text text--left text--bigger">10 days without a car</div>
+          <div></div>
+          <div class="text text-secondary">15/50 members</div>
         </div>
-      </v-card-text>
+        <div class="card-line card-separator">
+          <input type="range" class="range" min="0" max="50" value="15" disabled>
+        </div>
+      </div>
 
-      <v-divider></v-divider>
-    </v-card>
-    <v-card class="your-journeys">
-      <v-card-title class="text-h5 text">
+    </div>
+
+    <div class="subsection">
+      <div class="subheader">
         Your journeys
-      </v-card-title>
+      </div>
 
-      <v-card-text class="card-body">
+      <div class="card">
         <div>
-          something something 8 pts
+          <div class="card-line">
+            <div class="card-inline">
+            <v-icon class="card-inline-icon">mdi-car</v-icon>
+            <div class="text text--left text--bigger card-inline--text">8 points</div>
+            </div>
+            <div></div>
+            <div class="text text-secondary card-inline--subheader">06.03.2022</div>
+          </div>
         </div>
-        <v-divider></v-divider>
+      </div>
+
+      <div class="card">
         <div>
-          something something  7pts
+          <div class="card-line">
+            <div class="card-inline">
+              <v-icon class="card-inline-icon purple">mdi-shoe-print</v-icon>
+              <div class="text text--left text--bigger card-inline--text">8 points</div>
+            </div>
+            <div></div>
+            <div class="text text-secondary card-inline--subheader">04.03.2022</div>
+          </div>
         </div>
-      </v-card-text>
-    </v-card>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -85,8 +101,109 @@ export default class DashboardComponent extends Vue {
 }
 
 .search-bar {
-  border: 1px solid #000;
+  padding: 5px;
+  border: 2px solid #DEE5EF;
+  border-radius: 10px;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.search-icon {
+  color: var(--main-button-colour);
+}
+
+.search-text {
+  font-weight: lighter;
+}
+
+.subsection {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subheader {
+  color: var(--subheader-color);
+  font-size: 1rem;
+  font-weight: lighter;
+  padding-bottom: 7px;
+}
+
+.journey-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16);
+  border-radius: 8px;
+  padding: 5px 0;
+}
+
+.card-line {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: space-around
+}
+
+.card-inline {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-inline--text {
+  margin-top: 4px;
+}
+
+.card-inline--subheader {
+  margin-top: 8px !important;
+}
+
+.text {
+  font-weight: lighter;
+}
+
+.card-separator {
+  margin-bottom: 5px;
+}
+
+.text-right {
+  margin-left: 35px;
+}
+
+.text-secondary {
+  font-size: .8rem;
+  color: var(--subheader-color);
+  margin-top: 4px;
+}
+
+.range {
+  width: 100%;
+  margin-left: 14px;
+}
+
+.text--bigger {
+  font-size: 1.1rem;
+}
+
+.text--left {
+  margin-left: 5px;
+}
+
+.card-inline-icon {
+  background-color: #F5C844;
+  color: var(--secondary-color);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 6px;
+}
+
+.purple {
+  background-color: #EC5495;
 }
 
 .buttons {
@@ -95,8 +212,9 @@ export default class DashboardComponent extends Vue {
 }
 
 .button {
-  padding: 0 2rem;
+  padding: 0.25rem 3.5rem;
   color: var(--secondary-color);
   background-color: var(--main-button-colour);
+  border-radius: 10px;
 }
 </style>
