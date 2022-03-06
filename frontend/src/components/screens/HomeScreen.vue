@@ -18,13 +18,9 @@ export default class HomeScreenComponent extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.footer-component {
+.home-screen-component {
   width: 100%;
   background-color: var(--secondary-color);
-}
-
-.home-screen-component {
-  display: flex;
-  height: 50vh;
+  height: 35vh;
 }
 </style>
