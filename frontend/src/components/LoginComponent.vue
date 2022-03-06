@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="login-component" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/images/Background.png') + ')' }">
     <form class="main">
       <div class="header">Log in</div>
       <div class="input">
@@ -63,10 +63,16 @@ export default class LoginComponent extends Vue {
   padding: 0;
 }
 
+.background {
+  position: fixed;
+  z-index: 5;
+}
+
 .main {
   display: flex;
   flex-direction: column;
   padding: 0 10%;
+  z-index: 10;
 }
 
 .text {
@@ -103,7 +109,7 @@ export default class LoginComponent extends Vue {
 .header {
   color: var(--secondary-color);
   font-weight: bold;
-  padding-top: 20%;
+  padding-top: 18vh;
   padding-bottom: 10%;
   font-size: 1.6rem;
 }
